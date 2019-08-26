@@ -1,0 +1,14 @@
+- name: Check ports are accessible from current host
+  hosts: 127.0.0.1
+  tasks:
+  - name: Checking ports
+    wait_for:
+      host: "{{ item.server }}"
+      port: "{{ item.ports }}"
+      state: started
+      delay: 0
+      timeout: 3
+    with_items:
+      - { server: 8.8.8.8, ports: 83 }
+      - { server: 1.1.1.1, ports: 53 }
+      - { server: 9.9.9.9, ports: 53 }

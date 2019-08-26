@@ -1,0 +1,8 @@
+
+---
+- hosts: 127.0.0.1
+  tasks:
+   - name: Delete a user
+     user: name="{{item}}" state=absent
+     when: users_deleted is defined
+     with_dict: "{{ users_deleted | default({}) }}"
