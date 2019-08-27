@@ -1,2 +1,9 @@
 ---
 # vars file for create
+instance_type: t2.small
+security_group: Exemplo-grupo
+image: ami-064a0193585662d74
+region: us-east-1
+keypair: chave
+count: 3
+profile: giropops
